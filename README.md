@@ -16,14 +16,17 @@ A ready example (no o11y yet!) can be found in the 'bees-starter' directory.
 
 ## Running with OTel Java Agent
 
-Download [agent jar](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar)
+Download the [agent jar](https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent-all.jar)
+
 Add some env vars based on [otel java config](https://github.com/open-telemetry/opentelemetry-java/blob/main/sdk-extensions/autoconfigure/README.md#otlp-exporter-both-span-and-metric-exporters):
 
+```cmd
 export HONEYCOMB_API_KEY=apikey123
 export HONEYCOMB_DATASET=bees
 export OTEL_EXPORTER_OTLP_ENDPOINT=https://api.honeycomb.io
 export OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT}
 export OTEL_EXPORTER_OTLP_HEADERS=‘x-honeycomb-team=${HONEYCOMB_API_KEY},x-honeycomb-dataset=${HONEYCOMB_DATASET}’
+```
 
 Run the agent alongside your app. Easiest way is to build your own jar and run them both:
 
